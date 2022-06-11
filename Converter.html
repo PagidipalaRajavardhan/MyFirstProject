@@ -1,0 +1,220 @@
+ <html>
+
+<head>
+<style>
+     .container {
+border: 2px solid black;
+width: 300px;
+height: 400px;
+position: relative;
+left: 500px;
+top: 110px;
+border-radius: 5px;
+
+ 
+ }
+ .container input{
+      width:250px;
+      height:30px;
+      border-radius: 5px;
+ }
+ .container p{
+     font-size: 20px;
+     font-family: sans-serif;
+ }
+ button{
+     width:85px;
+     height:30px;
+     font-size: 16px;
+     font-family: sans-serif;
+ }
+ button:hover{
+     cursor:pointer;
+ }
+ select{
+     width:120px;
+     height:30px;
+     text-align: center;
+     border-radius: 5px;
+ }
+ ::placeholder{
+     text-align: center;
+     
+ }
+
+</style>
+<script>
+function caluclate() {
+var o = document.getElementById("convert").value;
+ var o1 = document.getElementById("converted").value;
+            var value1 = document.getElementById("convert1").value;
+            if(o.value==="")
+            {
+
+            }
+            else{
+          
+                if ((o == "Kilometer") && (o1 == "Meters")) {
+                    value1 = value1 * 1000;
+                    document.getElementById("converted1").value = value1; 
+                    
+                } 
+                else if ((o == "Kilometer") && (o1 == "Mile")) {
+                    value1 = value1 / 1.609;
+                    document.getElementById("converted1").value = value1;
+                
+                } 
+                else if ((o == "Kilometer") && (o1 == "Kilometer")) {
+                    value1 = value1 * 1;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Kilometer") && (o1 == "Centimeter")) {
+                    value1 = value1 * 100000;
+                    document.getElementById("converted1").value = value1;
+                }
+                    else if ((o == "Mile") && (o1 == "Kilometer")) {
+                    value1 = value1 *1.609;
+                    document.getElementById("converted1").value = value1;
+                    
+                } else if ((o == "Mile") && (o1 == "Mile")) {
+                    value1 = value1 / 1;
+                    document.getElementById("converted1").value = value1;
+                
+                } 
+                    
+
+
+                else if ((o == "Mile") && (o1 == "Meters")) {
+                    value1 = value1 * 1.609* 1000;
+                    document.getElementById("converted1").value = value1;
+                    
+
+                } else if ((o == "Mile") && (o1 == "Centimeter")) {
+                    value1 = value1 * 1.609 * 100000;
+                    document.getElementById("converted1").value = value1;
+                    
+
+                } else if ((o == "Meters") && (o1 == "Centimeter")) {
+                    value1 = value1 * 100;
+                    document.getElementById("converted1").value = value1;
+                    
+
+                } 
+                else if ((o == "Meters") && (o1 == "Meters")) {
+                    value1 = value1 * 100;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Meters") && (o1 == "Kilometer")) {
+                    value1 = value1 /1000;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Meters") && (o1 == "Mile")) {
+                    value1 = value1 / 1609;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Centimeter") && (o1 == "Mile")) {
+                    value1 = value1 /160900;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Centimeter") && (o1 == "Kilometer")) {
+                    value1 = value1/100000;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Centimeter") && (o1 == "Centimeter")) {
+                    value1 = value1 * 1;
+                    document.getElementById("converted1").value = value1;
+                }
+                else if ((o == "Centimeter") && (o1 == "Meters")) {
+                    value1 = value1/100;
+                    document.getElementById("converted1").value = value1;
+                }
+            
+                    else {
+                    alert("Wrong Input");
+                }
+            }
+
+        }
+        function caluclate1()
+        {
+            var o = document.getElementById("convert").value;
+         
+           if(o=="Kilometer")
+           {
+               document.getElementById("convert1").placeholder="Kilometer"
+           }
+           if(o=="Mile")
+           {
+               document.getElementById("convert1").placeholder="Miles"
+           }
+          if(o=="Meters")
+           {
+               document.getElementById("convert1").placeholder="Meters"
+           }
+           if(o=="Centimeter")
+           {
+               document.getElementById("convert1").placeholder="Centimeters"
+           }
+        }
+        function caluclate2()
+        {
+            var o1 = document.getElementById("converted").value;
+            if(o1=="Kilometer")
+            {
+                document.getElementById("converted1").placeholder="Kilometers"
+            }
+           if(o1=="Meters")
+            {
+                document.getElementById("converted1").placeholder="Meters"
+            }
+            if(o1=="Centimeter")
+            {
+                document.getElementById("converted1").placeholder="Centimeters"
+            }
+            if(o1=="Mile")
+            {
+                document.getElementById("converted1").placeholder="Miles"
+            }
+        }
+        function f1()
+        {
+            return false;
+        }
+       
+    </script>
+</head>
+
+<body>
+<div class="container">
+     <center>
+     <h2>Length Converter</h2>
+<form onsubmit="event.preventDefault()">
+<p>Convert</p>
+<select id="convert" onchange="caluclate1()">
+    <option>Choose Option</option>
+<option>Mile</option>
+<option>Kilometer</option>
+<option>Meters</option>
+<option>Centimeter</option>
+
+</select><br/><br/>
+<input type="text" id="convert1" placeholder="Enter Measurements" required>
+ <p>To</p>
+<select id="converted" onchange="caluclate2()">
+<option>Choose Option</option>
+<option>Mile</option>
+<option>Kilometer</option>
+<option>Meters</option>
+<option>Centimeter</option>
+
+ </select><br/><br/>
+<input type="text" id="converted1" placeholder="Converterd Measurement">
+<br/><br/>
+ <br/>
+ <button onclick="caluclate()">Convert</button>
+</center>
+</form>
+</div>
+</body>
+
+</html>
